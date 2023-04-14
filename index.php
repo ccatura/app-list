@@ -15,16 +15,22 @@
         </div>
 
         <?php
-            $dir    = '../';
-            $folders = scandir($dir);
+            $folders = scandir('../');
 
             foreach ($folders as $folder) {
                 if($folder != "." && $folder != ".." && $folder != "ut" && $folder != "tests" && $folder != "app-list") {
-                    echo "<a href='/apps/$folder' target='_blank'>$folder</a><br>";
+                    
+
+                    if (file_exists('../' . $folder . '/desc.html')) {
+                        echo "<a href='/apps/$folder' target='_blank'>";
+                        include '../' . $folder . '/desc.html';
+                        echo "</a><br>";
+                    } else {
+                        echo "<a href='/apps/$folder' target='_blank'>$folder</a><br><br>";
+                    }
                 }
-
-
             }
+
         ?>
 
 
