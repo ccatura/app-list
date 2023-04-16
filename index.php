@@ -11,27 +11,27 @@
     
     <div class="wrapper">
         <div class="folder-list">
-            <h1>All Web Apps</h1>
-        </div>
+            <h1 class="heading">All Web Apps</h1>
 
-        <?php
-            $folders = scandir('../');
+            <?php
+                $folders = scandir('../');
 
-            foreach ($folders as $folder) {
-                if($folder != "." && $folder != ".." && $folder != "ut" && $folder != "tests" && $folder != "app-list") {
-                    
+                foreach ($folders as $folder) {
+                    if($folder != "." && $folder != ".." && $folder != "ut" && $folder != "tests" && $folder != "app-list") {
+                        
 
-                    if (file_exists('../' . $folder . '/desc.html')) {
-                        echo "<a href='/apps/$folder' target='_blank'>";
-                        include '../' . $folder . '/desc.html';
-                        echo "</a><br>";
-                    } else {
-                        echo "<a href='/apps/$folder' target='_blank'>$folder</a><br><br>";
+                        if (file_exists('../' . $folder . '/desc.html')) {
+                            echo "<a href='/apps/$folder' target='_blank'>";
+                            include '../' . $folder . '/desc.html';
+                            echo "</a><br>";
+                        } else {
+                            echo "<a href='/apps/$folder' target='_blank'>$folder</a><br><br>";
+                        }
                     }
                 }
-            }
 
-        ?>
+            ?>
+        </div>
 
 
 
